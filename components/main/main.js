@@ -3,7 +3,6 @@
 
 function render_bottom_container (shoes) {
 
-    const main = document.querySelector("main");
     const bottom_container = document.querySelector("#bottom_container");
     bottom_container.innerHTML = "";
     
@@ -45,14 +44,13 @@ function render_bottom_container (shoes) {
                 <p>${kind.name}</p>
                 <p>${country.name}</p>
                 <p id="shoe_price">${shoe.price} kr</p>
-                <div id="reviews">
-                    
-                </div> 
+                <div id="reviews"></div> 
             </div>
         `;
             
            render_reviews(shoe);
-            // Skapar button  
+            
+           // Skapar button  
     
             const popup_close_button = document.createElement("button");
             popup_close_button.setAttribute("id", "popup_close_button");
@@ -67,16 +65,12 @@ function render_bottom_container (shoes) {
             });
         });
     }
-    //main.appendChild(bottom_container);
 }
 
 
 function render_reviews(shoe){
     let review_container = document.querySelector("#reviews");
-    let container = document.querySelector("#header_container");
     let sum_score = 0;
-
-
 
     for(let review of filter_review(shoe)){
 
@@ -84,7 +78,7 @@ function render_reviews(shoe){
         sum_score = review.score + sum_score;
 
         if(review.rev === ""){
-            review.rev = "Ingen Kommentar";
+            review.rev = "No comment";
         }
 
         switch(score){
@@ -116,9 +110,7 @@ function render_reviews(shoe){
 
     let div_dom = document.createElement("div");
     review_container.appendChild(div_dom);
-    div_dom.innerHTML = `<h2>OMDÖMEN</h2>
-                        <h3>Genomsnittligt omdöme: ${average_score_str.substring(0, 4)}</h3>`;
-
-
+    div_dom.innerHTML = `<h2>Reviews</h2>
+                        <h3>Average score: ${average_score_str.substring(0, 4)}</h3>`;
 
 }

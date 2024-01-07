@@ -5,7 +5,7 @@
 
 header {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 2.8fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 100px;
     border-bottom: 2px solid black;
     font-family: Koulen;
@@ -22,26 +22,27 @@ header h1 {
     grid-column: 2;
 }
 
-#about_us {
+#sort {
     grid-column: 3;
+}
+
+#about_us {
+    grid-column: 8;
     justify-self: end;
     margin-right: 40px;
 }
 
-#filter,
-#about_us {
+#filter {
+    justify-self: center;
+}
+
+#filter, #sort, #about_us, #cart {
     align-self: center;
     font-size: 20px;
     margin-top: 20px;
 }
 
-.button {
-    display: flex;
-    gap: 10px;
-}
-
-.dropdown_menu,
-.about_us_box {
+.dropdown_filter, .dropdown_sort, .about_us_box {
     background-color: white;
     border: 1px solid black;
     border-radius: 0 0 10px 10px;
@@ -55,22 +56,22 @@ header h1 {
     transition: all 0.25s;
 }
 
-.dropdown_menu>div {
+.dropdown_filter > div {
     border-top: 1px solid black;
 }
 
-.dropdown_menu>div>div {
+.dropdown_filter > div > div {
     font-size: 15px;
     margin-left: 5px;
 }
 
-.dropdown_meny>div div:first-child {
+.dropdown_filter > div div:first-child {
     font-size: 20px;
 }
 
 .about_us_box {
     border-top: 2px solid black;
-    right: 80px;
+    right: 165px;
     height: 350px;
 
     background-image: url(../../media/about_us.jpg);
@@ -79,23 +80,10 @@ header h1 {
 }
 
 .hide {
-    max-height: 0;
-    opacity: 0;
+    display: none;
 }
 
-.arrow {
-    align-self: center;
-    font-family: helvetica;
-    font-size: 10px;
-}
-
-.arrow:hover,
-#filter_title:hover,
-#about_us_title:hover {
+#filter_title:hover, #sort_title:hover, #about_us_title:hover, #cart_title:hover {
     cursor: pointer;
-}
-
-.arrow:hover {
-    color: rgb(251, 247, 247);
-    text-shadow: 0 0 5px black;
+    color: rgb(110, 110, 110);
 }
